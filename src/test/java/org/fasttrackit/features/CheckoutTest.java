@@ -4,7 +4,6 @@ import org.fasttrackit.steps.CartSteps;
 import org.fasttrackit.steps.CheckoutSteps;
 import org.fasttrackit.steps.LoginSteps;
 import org.fasttrackit.utils.BaseTest;
-
 import org.fasttrackit.utils.Constants;
 import org.junit.Test;
 
@@ -20,10 +19,11 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void checkoutWithLogin(){
+        loginSteps.doLogin(Constants.USER_EMAIL,Constants.USER_PASSWORD);
+        cartSteps.emptyCart();
         cartSteps.addProductToCart();
         cartSteps.proceedToCheckout();
-        checkoutSteps.checkoutWithLogin();
-        checkoutSteps.enterBillingInformation();
+        checkoutSteps.enterCheckoutDetails();
+        checkoutSteps.placeOrder();
     }
-
 }

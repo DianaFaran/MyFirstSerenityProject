@@ -3,6 +3,7 @@ package org.fasttrackit.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.apache.commons.lang3.RandomStringUtils;
 
 
 public class RegisterPage extends PageObject {
@@ -49,5 +50,10 @@ public class RegisterPage extends PageObject {
     public void clickRegisterLink() {
         clickOn(registerLink);
     }
+    public void setRandomEmail(){
+        String randomEmail = RandomStringUtils.randomAlphanumeric(1,10)+"@gmail.com";
+        typeInto(emailField,randomEmail);
+    }
+
 
 }

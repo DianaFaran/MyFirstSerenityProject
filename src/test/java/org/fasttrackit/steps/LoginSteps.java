@@ -32,9 +32,8 @@ public class LoginSteps {
 
     @Step
     public void checkUserIsLoggedIn(String message){
-        accountPage.verifyWelcomeMessage(message);
-        Assert.assertTrue(accountPage.isWelcomeTextDisplayed(message));
-        Assert.assertEquals(message.toLowerCase(),accountPage.getWelcomeText().toLowerCase());
+        accountPage.verifyWelcomeLoginMessage(message);
+        Assert.assertTrue(accountPage.isWelcomeLoginTextDisplayed((accountPage.getWelcomeLoginText())));
     }
 
     @Step

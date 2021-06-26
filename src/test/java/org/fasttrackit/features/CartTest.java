@@ -1,7 +1,5 @@
 package org.fasttrackit.features;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
-import org.fasttrackit.pages.HomePage;
 import org.fasttrackit.steps.CartSteps;
 import org.fasttrackit.steps.LoginSteps;
 import org.fasttrackit.utils.BaseTest;
@@ -41,11 +39,5 @@ public class CartTest extends BaseTest {
         cartSteps.addProductToCart();
         cartSteps.emptyCart();
     }
-//    @Test
-//    public void emptyCartForLoggedUser(){
-//        loginSteps.doLogin(Constants.USER_EMAIL,Constants.USER_PASSWORD);
-//        homePage.clickCartLink();
-//        cartSteps.emptyCart();
-//    }
 
 }

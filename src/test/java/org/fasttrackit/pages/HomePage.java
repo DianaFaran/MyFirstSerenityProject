@@ -17,12 +17,18 @@ public class HomePage extends PageObject {
     @FindBy(css = ".skip-cart .label")
     private WebElementFacade cartLink;
 
+    @FindBy(css = "#search")
+    private WebElementFacade searchLink;
+
     @FindBy(css = ".nav-5")
     private WebElementFacade saleLink;
 
     @FindBy(css = ".nav-6")
     private WebElementFacade vipLink;
 
+    public void clickSearchLink(){
+        clickOn(searchLink);
+    }
     public void clickCartLink(){
         clickOn(cartLink);
     }

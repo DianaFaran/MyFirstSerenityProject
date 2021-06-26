@@ -46,37 +46,45 @@ public class CheckoutPage extends PageObject {
     @FindBy(id = "s_method_freeshipping_freeshipping")
     private WebElementFacade shippingRadioButton;
 
-    @FindBy(css = "[onclick^=shippingMethod.save()]")
+    @FindBy(css = ".buttons-set [onclick^='shippingMethod.save()'] span span")
     private WebElementFacade continueToPaymentButton;
 
-    @FindBy(css = "[onclick^=payment.save()]")
-    private WebElementFacade continueToOrderReview;
+    @FindBy(css = ".buttons-set [onclick^='payment.save()'] span span")
+    private WebElementFacade continueToOrderReviewButton;
 
-    @FindBy(css = "[onclick^=review.save()]")
+    @FindBy(css = ".buttons-set [onclick^='review.save()'] span span")
     private WebElementFacade placeOrderButton;
 
+    @FindBy(css = ".buttons-set [onclick^='billing.save()'] span span")
+    private WebElementFacade continueToShippingButton;
+
+
+    public void clickContinueToShippingButton(){
+        waitFor(".buttons-set [onclick^='billing.save()'] span span");
+        clickOn(continueToShippingButton);
+    }
     public void clickPlaceOrderButton(){
+        waitFor(".buttons-set [onclick^='review.save()'] span span");
         clickOn(placeOrderButton);
     }
     public void clickContinueToOrderReviewButton(){
-        clickOn(continueToOrderReview);
+        waitFor(".buttons-set [onclick^='payment.save()'] span span");
+        clickOn(continueToOrderReviewButton);
     }
-    public void clickContinueToPayment(){
+    public void clickContinueToPaymentButton(){
+        waitFor(".buttons-set [onclick^='shippingMethod.save()'] span span");
         clickOn(continueToPaymentButton);
     }
-
-    public void selectFreeShippingButton(){
+    public void clickSelectFreeShippingButton(){
         clickOn(shippingRadioButton);
     }
-
     public void clickContinueButton(){
+
         clickOn(continueButton);
     }
-
     public void setBillingTelephone(String telephone){
         typeInto(billingTelephone,telephone);
     }
-
     public void setBillingZipcode(String zipcode){
         typeInto(billingZipcode,zipcode);
     }
@@ -91,7 +99,6 @@ public class CheckoutPage extends PageObject {
     }
     public void setBillingAddressField(String address){
         typeInto(billingAddressField,address);
-
     }public void setBillingLastnameField(String lastname){
        typeInto(billingLastnameField,lastname);
     }

@@ -1,20 +1,18 @@
 package org.fasttrackit.steps;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
-import org.fasttrackit.pages.CartPage;
-import org.fasttrackit.pages.HomePage;
-import org.fasttrackit.pages.LoginPage;
-import org.fasttrackit.pages.ProductsPage.DumboJeansPage;
-import org.fasttrackit.pages.VipPage;
+import org.fasttrackit.pages.*;
+import org.fasttrackit.pages.ProductPage;
 
 
 public class CartSteps {
 
     private HomePage homePage;
     private VipPage vipPage;
-    private DumboJeansPage dumboJeansPage;
+    private ProductPage productPage;
     private CartPage cartPage;
     private LoginPage loginPage;
+    private AccountPage accountPage;
+
 
     @Step
     public void navigateToProductPage(){
@@ -26,9 +24,9 @@ public class CartSteps {
         homePage.open();
         homePage.clickVipLink();
         vipPage.viewProductDetails();
-        dumboJeansPage.selectProductColor();
-        dumboJeansPage.selectProductSize();
-        dumboJeansPage.addToCart();
+        productPage.selectProductColor();
+        productPage.selectProductSize();
+        productPage.addToCart();
     }
     @Step
     public void checkItemAddedToCart(){
@@ -37,6 +35,8 @@ public class CartSteps {
     }
     @Step
     public void emptyCart(){
+        homePage.clickCartLink();
+        accountPage.viewAccountCart();
         cartPage.clickEmptyCartButton();
         cartPage.checkEmptyCartMessage("You have no items in your shopping cart.");
     }

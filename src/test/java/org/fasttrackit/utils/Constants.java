@@ -1,6 +1,7 @@
 package org.fasttrackit.utils;
 
-import net.serenitybdd.core.annotations.findby.FindBy;
+
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class Constants {
     public static final String USER_EMAIL = "ginny@yahoo.com";
@@ -13,5 +14,6 @@ public class Constants {
     public static final String USER_ZIPCODE= "32006";
     public static final String USER_COUNTRY = "United States";
     public static final String USER_TELEPHONE = "55567898";
+
 
 }
